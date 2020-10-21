@@ -1,13 +1,771 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-			<title>【まだ見ぬ筋肉と邂逅する】Powers </title>
-			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-			<link rel="stylesheet" type="text/css" href="css/styles.css" />
-	</head>
-	
-	<body>
-		<h1 style="center">powers sample</h1>
-	</body>
-	
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>【まだ見ぬ筋肉と邂逅する】Powers </title>
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+</head>
+<style>
+    .container {
+        width: 1300px;
+        margin: 0 auto;
+    }
+
+    .contant {
+        margin-right: auto;
+        margin-left: auto;
+        display: -webkit-flex;
+        display: flex;
+    }
+
+    
+    .sidebar {
+        width: 20%;
+        border-right: 1px solid;
+        border-color: #dcdddd;
+    }
+
+    .sidebar .logo{
+        width: 40%;
+        height: auto;
+        margin-bottom: 10px;
+    }
+
+    .sidebar__item {
+        margin-bottom: 20px;
+        font-size: 18px;
+        position: sticky;
+        margin-bottom: 0;
+        top: 10px;
+        z-index: 0;
+    }
+
+    .sidebar__item .selected {
+        color: turquoise;
+    }
+
+    .sidebar__item .menu-item {
+        margin-bottom: 20px;
+    }
+
+    .sidebar__item .menu-item .menu-text{
+        font-weight: bold;
+    }
+    
+    .sidebar__item .menu-item i {
+        width: 25px;
+        text-align: center;
+        margin-right: 15px;
+    }
+
+
+    .main {
+        display: block;
+        margin: 30px;
+        width: 70%;
+    }
+
+    .box {
+        position: relative;
+    }
+
+    .box .boxLeft {
+        position: absolute;
+        left: 0;
+    }
+
+    .box .boxRight {
+        position: absolute;
+        right: 0;
+    }
+
+    .search {
+        margin-bottom: 80px;
+    }
+
+    .search span {
+        font-size: 12px;
+        color: darkgray;
+
+    }
+
+    .foot {
+        background-color: #F8F9f9;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        padding: 20px 20px 10px 20px;
+    }
+
+    .foot .foot-block {
+        padding-top: 10px;
+        padding-left: 10px;
+    }
+
+    .foot .foot-text {
+        font-size: 13px;
+        font-weight: bold;
+    }
+
+    .foot a {
+        text-decoration: none;
+    }
+
+    .foot .trainees {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .foot .trainees .trainee {
+        width: 90px;
+        margin: 5px;
+    }
+
+    .foot .trainees .trainee img {
+        border-radius: 50%;
+        width: 80px;
+        height: 80px;
+    }
+
+    .foot .trainees .trainee .name {
+        font-size: 12px;
+    }
+
+    .trainees {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+
+    .trainee {
+        width: 160px;
+        margin: 10px;
+        text-align: center;
+    }
+
+    .trainee img {
+        position: relative;
+        border-radius: 50%;
+        width: 150px;
+        height: 150px;
+        z-index: 0;
+    }
+
+    .badge {
+        position: absolute;
+        color: white;
+        font-size: 12px;
+        margin: 20px 10px 10px 20px;
+        z-index: 1;
+    }
+
+    .badge:before {
+        background-color: #f00;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        line-height: 1;
+        min-width: 1em;
+        padding: 5px;
+        transform: translate(-50%, -50%);
+        content: attr(data-badge)"";
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .trainee .profile .name {
+        font-size: 14px;
+        font-weight: bold;
+        margin-left: 7px;
+    }
+
+    .trainee .profile .like {
+        font-size: 12px;
+        margin-right: 7px;
+    }
+
+    .trainee .profile .comment {
+        text-align: left;
+        font-size: 12px;
+        color: darkgray;
+    }
+
+    .new-arrival {
+        background-color: #F8F9f9;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        padding: 20px;
+    }
+
+    .new-arrival .new-arrival-block {
+        padding-top: 10px;
+        padding-left: 10px;
+
+    }
+
+    .new-arrival .new-arrival-text {
+        font-size: 13px;
+        font-weight: bold;
+    }
+
+    .new-arrival a {
+        text-decoration: none;
+    }
+
+    .new-arrival .trainees {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .new-arrival .trainees .trainee {
+        width: 90px;
+        margin: 5px;
+    }
+
+    .new-arrival .trainees .trainee img {
+        border-radius: 50%;
+        width: 80px;
+        height: 80px;
+    }
+
+    .new-arrival .trainees .trainee .name {
+        font-size: 12px;
+    }
+
+
+    .blue {
+        color: turquoise;
+    }
+
+    .red {
+        color: tomato;
+    }
+
+    .yellow {
+        color: sandybrown;
+    }
+
+    .green {
+        color: forestgreen;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="contant">
+            <div class="sidebar">
+                <div class="sidebar__item">
+                    <!-- 固定・追従させたいエリア -->
+                    <img class="logo" src="resources/pairs_main2.png" alt="">
+                    <div class="menu-item selected">
+                        <i class="fas fa-search"></i><span class="menu-text">さがす</span>
+                        <br>
+                    </div>
+                    <div class="menu-item">
+                        <i class="fas fa-users"></i><span class="menu-text">コミュニティ</span>
+                        <br>
+                    </div>
+                    <div class="menu-item">
+                        <i class="far fa-thumbs-up"></i><span class="menu-text">お相手から</span>
+                        <br>
+                    </div>
+                    <div class="menu-item">
+                        <i class="far fa-comment-dots"></i><span class="menu-text">メッセージ</span>
+                        <br>
+                    </div>
+                    <div class="menu-item">
+                        <i class="fas fa-user-circle"></i><span class="menu-text">プロフィール</span>
+                        <br>
+                    </div>
+                    <div class="menu-item">
+                        <i class="fas fa-shoe-prints"></i><span class="menu-text">足あと</span>
+                        <br>
+                    </div>
+                    <div class="menu-item">
+                        <i class="fas fa-bolt"></i><span class="menu-text">ブースト</span>
+                        <br>
+                    </div>
+                    <div class="menu-item">
+                        <i class="fas fa-bars"></i><span class="menu-text">その他</span>
+                        <br>
+                    </div>
+                </div>
+            </div>
+            <main class="main">
+                <!-- メインコンテンツ -->
+                <h1>さがす</h1>
+                <div class="box search">
+                    <span class="boxLeft">9,999人以上</span>
+                    <i class="fas fa-search boxRight blue"></i>
+                </div>
+
+                <div class="foot">
+                    <div class="foot-block box">
+                        <div class="foot-text boxLeft">あしあと</div>
+                        <a class="boxRight blue" href="">もっと見る</a>
+                    </div>
+                    <br>
+                    <div class="trainees">
+                        <div class="trainee">
+                            <img src="resources/o0300030014316705656.jpg" alt="alt">
+                            <div class="name boxLeft">
+                                <i class="fas fa-circle yellow"></i>24歳 埼玉
+                            </div>
+                        </div>
+                        <div class="trainee">
+                            <img src="resources/o0300030014316705656.jpg" alt="alt">
+                            <div class="name boxLeft">
+                                <i class="fas fa-circle green"></i>24歳 埼玉
+                            </div>
+                        </div>
+                        <div class="trainee">
+                            <img src="resources/o0300030014316705656.jpg" alt="alt">
+                            <div class="name boxLeft">
+                                <i class="fas fa-circle yellow"></i>24歳 埼玉
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="trainees">
+                    <div class="trainee">
+                        <span class="badge" data-badge="NEW"></span>
+                        <img src="resources/o0300030014316705656.jpg" alt="alt">
+                        <br>
+                        <div class="profile">
+                            <div class="box">
+                                <div class="name boxLeft">
+                                    <i class="fas fa-circle green"></i>24歳 埼玉
+                                </div>
+                                <div class="like boxRight">
+                                    <i class="fas fa-heart red"></i>60%
+                                </div>
+                            </div>
+                            <br>
+                            <div class="comment">
+                                はじめまして。
+                            </div>
+                        </div>
+                    </div>
+                    <div class="trainee">
+                        <span class="badge" data-badge="NEW"></span>
+                        <img src="resources/o0300030014316705656.jpg" alt="alt">
+                        <br>
+                        <div class="profile">
+                            <div class="box">
+                                <div class="name boxLeft">
+                                    <i class="fas fa-circle yellow"></i>24歳 埼玉
+                                </div>
+                                <div class="like boxRight">
+                                    <i class="fas fa-heart red"></i>60%
+                                </div>
+                            </div>
+                            <br>
+                            <div class="comment">
+                                はじめまして。
+                            </div>
+                        </div>
+                    </div>
+                    <div class="trainee">
+                        <span class="badge" data-badge="NEW"></span>
+                        <img src="resources/o0300030014316705656.jpg" alt="alt">
+                        <br>
+                        <div class="profile">
+                            <div class="box">
+                                <div class="name boxLeft">
+                                    <i class="fas fa-circle yellow"></i>24歳 埼玉
+                                </div>
+                                <div class="like boxRight">
+                                    <i class="fas fa-heart red"></i>60%
+                                </div>
+                            </div>
+                            <br>
+                            <div class="comment">
+                                はじめまして。
+                            </div>
+                        </div>
+                    </div>
+                    <div class="trainee">
+                        <span class="badge" data-badge="NEW"></span>
+                        <img src="resources/o0300030014316705656.jpg" alt="alt">
+                        <br>
+                        <div class="profile">
+                            <div class="box">
+                                <div class="name boxLeft">
+                                    <i class="fas fa-circle yellow"></i>24歳 埼玉
+                                </div>
+                                <div class="like boxRight">
+                                    <i class="fas fa-heart red"></i>60%
+                                </div>
+                            </div>
+                            <br>
+                            <div class="comment">
+                                はじめまして。
+                            </div>
+                        </div>
+                    </div>
+                    <div class="trainee">
+                        <span class="badge" data-badge="NEW"></span>
+                        <img src="resources/o0300030014316705656.jpg" alt="alt">
+                        <br>
+                        <div class="profile">
+                            <div class="box">
+                                <div class="name boxLeft">
+                                    <i class="fas fa-circle yellow"></i>24歳 埼玉
+                                </div>
+                                <div class="like boxRight">
+                                    <i class="fas fa-heart red"></i>60%
+                                </div>
+                            </div>
+                            <br>
+                            <div class="comment">
+                                はじめまして。
+                            </div>
+                        </div>
+                    </div>
+                    <div class="trainee">
+                        <span class="badge" data-badge="NEW"></span>
+                        <img src="resources/o0300030014316705656.jpg" alt="alt">
+                        <br>
+                        <div class="profile">
+                            <div class="box">
+                                <div class="name boxLeft">
+                                    <i class="fas fa-circle yellow"></i>24歳 埼玉
+                                </div>
+                                <div class="like boxRight">
+                                    <i class="fas fa-heart red"></i>60%
+                                </div>
+                            </div>
+                            <br>
+                            <div class="comment">
+                                はじめまして。
+                            </div>
+                        </div>
+                    </div>
+                    <div class="trainee">
+                        <span class="badge" data-badge="NEW"></span>
+                        <img src="resources/o0300030014316705656.jpg" alt="alt">
+                        <br>
+                        <div class="profile">
+                            <div class="box">
+                                <div class="name boxLeft">
+                                    <i class="fas fa-circle green"></i>24歳 埼玉
+                                </div>
+                                <div class="like boxRight">
+                                    <i class="fas fa-heart red"></i>60%
+                                </div>
+                            </div>
+                            <br>
+                            <div class="comment">
+                                はじめまして。
+                            </div>
+                        </div>
+                    </div>
+                    <div class="trainee">
+                        <span class="badge" data-badge="NEW"></span>
+                        <img src="resources/o0300030014316705656.jpg" alt="alt">
+                        <br>
+                        <div class="profile">
+                            <div class="box">
+                                <div class="name boxLeft">
+                                    <i class="fas fa-circle yellow"></i>24歳 埼玉
+                                </div>
+                                <div class="like boxRight">
+                                    <i class="fas fa-heart red"></i>60%
+                                </div>
+                            </div>
+                            <br>
+                            <div class="comment">
+                                はじめまして。
+                            </div>
+                        </div>
+                    </div>
+                    <div class="trainee">
+                        <span class="badge" data-badge="NEW"></span>
+                        <img src="resources/o0300030014316705656.jpg" alt="alt">
+                        <br>
+                        <div class="profile">
+                            <div class="box">
+                                <div class="name boxLeft">
+                                    <i class="fas fa-circle green"></i>24歳 埼玉
+                                </div>
+                                <div class="like boxRight">
+                                    <i class="fas fa-heart red"></i>60%
+                                </div>
+                            </div>
+                            <br>
+                            <div class="comment">
+                                はじめまして。
+                            </div>
+                        </div>
+                    </div>
+                    <div class="trainee">
+                        <span class="badge" data-badge="NEW"></span>
+                        <img src="resources/o0300030014316705656.jpg" alt="alt">
+                        <br>
+                        <div class="profile">
+                            <div class="box">
+                                <div class="name boxLeft">
+                                    <i class="fas fa-circle yellow"></i>24歳 埼玉
+                                </div>
+                                <div class="like boxRight">
+                                    <i class="fas fa-heart red"></i>60%
+                                </div>
+                            </div>
+                            <br>
+                            <div class="comment">
+                                はじめまして。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="new-arrival">
+                    <div class="new-arrival-block box">
+                        <div class="new-arrival-text boxLeft">新着のお相手</div>
+                        <a class="boxRight blue" href="">もっと見る</a>
+                    </div>
+                    <br>
+                    <div class="trainees">
+                        <div class="trainee">
+                            <img src="resources/o0300030014316705656.jpg" alt="alt">
+                            <div class="name boxLeft">
+                                <i class="fas fa-circle yellow"></i>24歳 埼玉
+                            </div>
+                        </div>
+                        <div class="trainee">
+                            <img src="resources/o0300030014316705656.jpg" alt="alt">
+                            <div class="name boxLeft">
+                                <i class="fas fa-circle green"></i>24歳 埼玉
+                            </div>
+                        </div>
+                        <div class="trainee">
+                            <img src="resources/o0300030014316705656.jpg" alt="alt">
+                            <div class="name boxLeft">
+                                <i class="fas fa-circle yellow"></i>24歳 埼玉
+                            </div>
+                        </div>
+                        <div class="trainee">
+                            <img src="resources/o0300030014316705656.jpg" alt="alt">
+                            <div class="name boxLeft">
+                                <i class="fas fa-circle yellow"></i>24歳 埼玉
+                            </div>
+                        </div>
+                        <div class="trainee">
+                            <img src="resources/o0300030014316705656.jpg" alt="alt">
+                            <div class="name boxLeft">
+                                <i class="fas fa-circle green"></i>24歳 埼玉
+                            </div>
+                        </div>
+                        <div class="trainee">
+                            <img src="resources/o0300030014316705656.jpg" alt="alt">
+                            <div class="name boxLeft">
+                                <i class="fas fa-circle yellow"></i>24歳 埼玉
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="trainees">
+                    <div class="trainee">
+                        <span class="badge" data-badge="NEW"></span>
+                        <img src="resources/o0300030014316705656.jpg" alt="alt">
+                        <br>
+                        <div class="profile">
+                            <div class="box">
+                                <div class="name boxLeft">
+                                    <i class="fas fa-circle green"></i>24歳 埼玉
+                                </div>
+                                <div class="like boxRight">
+                                    <i class="fas fa-heart red"></i>60%
+                                </div>
+                            </div>
+                            <br>
+                            <div class="comment">
+                                はじめまして。
+                            </div>
+                        </div>
+                    </div>
+                    <div class="trainee">
+                        <span class="badge" data-badge="NEW"></span>
+                        <img src="resources/o0300030014316705656.jpg" alt="alt">
+                        <br>
+                        <div class="profile">
+                            <div class="box">
+                                <div class="name boxLeft">
+                                    <i class="fas fa-circle yellow"></i>24歳 埼玉
+                                </div>
+                                <div class="like boxRight">
+                                    <i class="fas fa-heart red"></i>60%
+                                </div>
+                            </div>
+                            <br>
+                            <div class="comment">
+                                はじめまして。
+                            </div>
+                        </div>
+                    </div>
+                    <div class="trainee">
+                        <span class="badge" data-badge="NEW"></span>
+                        <img src="resources/o0300030014316705656.jpg" alt="alt">
+                        <br>
+                        <div class="profile">
+                            <div class="box">
+                                <div class="name boxLeft">
+                                    <i class="fas fa-circle yellow"></i>24歳 埼玉
+                                </div>
+                                <div class="like boxRight">
+                                    <i class="fas fa-heart red"></i>60%
+                                </div>
+                            </div>
+                            <br>
+                            <div class="comment">
+                                はじめまして。
+                            </div>
+                        </div>
+                    </div>
+                    <div class="trainee">
+                        <span class="badge" data-badge="NEW"></span>
+                        <img src="resources/o0300030014316705656.jpg" alt="alt">
+                        <br>
+                        <div class="profile">
+                            <div class="box">
+                                <div class="name boxLeft">
+                                    <i class="fas fa-circle yellow"></i>24歳 埼玉
+                                </div>
+                                <div class="like boxRight">
+                                    <i class="fas fa-heart red"></i>60%
+                                </div>
+                            </div>
+                            <br>
+                            <div class="comment">
+                                はじめまして。
+                            </div>
+                        </div>
+                    </div>
+                    <div class="trainee">
+                        <span class="badge" data-badge="NEW"></span>
+                        <img src="resources/o0300030014316705656.jpg" alt="alt">
+                        <br>
+                        <div class="profile">
+                            <div class="box">
+                                <div class="name boxLeft">
+                                    <i class="fas fa-circle yellow"></i>24歳 埼玉
+                                </div>
+                                <div class="like boxRight">
+                                    <i class="fas fa-heart red"></i>60%
+                                </div>
+                            </div>
+                            <br>
+                            <div class="comment">
+                                はじめまして。
+                            </div>
+                        </div>
+                    </div>
+                    <div class="trainee">
+                        <span class="badge" data-badge="NEW"></span>
+                        <img src="resources/o0300030014316705656.jpg" alt="alt">
+                        <br>
+                        <div class="profile">
+                            <div class="box">
+                                <div class="name boxLeft">
+                                    <i class="fas fa-circle yellow"></i>24歳 埼玉
+                                </div>
+                                <div class="like boxRight">
+                                    <i class="fas fa-heart red"></i>60%
+                                </div>
+                            </div>
+                            <br>
+                            <div class="comment">
+                                はじめまして。
+                            </div>
+                        </div>
+                    </div>
+                    <div class="trainee">
+                        <span class="badge" data-badge="NEW"></span>
+                        <img src="resources/o0300030014316705656.jpg" alt="alt">
+                        <br>
+                        <div class="profile">
+                            <div class="box">
+                                <div class="name boxLeft">
+                                    <i class="fas fa-circle green"></i>24歳 埼玉
+                                </div>
+                                <div class="like boxRight">
+                                    <i class="fas fa-heart red"></i>60%
+                                </div>
+                            </div>
+                            <br>
+                            <div class="comment">
+                                はじめまして。
+                            </div>
+                        </div>
+                    </div>
+                    <div class="trainee">
+                        <span class="badge" data-badge="NEW"></span>
+                        <img src="resources/o0300030014316705656.jpg" alt="alt">
+                        <br>
+                        <div class="profile">
+                            <div class="box">
+                                <div class="name boxLeft">
+                                    <i class="fas fa-circle yellow"></i>24歳 埼玉
+                                </div>
+                                <div class="like boxRight">
+                                    <i class="fas fa-heart red"></i>60%
+                                </div>
+                            </div>
+                            <br>
+                            <div class="comment">
+                                はじめまして。
+                            </div>
+                        </div>
+                    </div>
+                    <div class="trainee">
+                        <span class="badge" data-badge="NEW"></span>
+                        <img src="resources/o0300030014316705656.jpg" alt="alt">
+                        <br>
+                        <div class="profile">
+                            <div class="box">
+                                <div class="name boxLeft">
+                                    <i class="fas fa-circle green"></i>24歳 埼玉
+                                </div>
+                                <div class="like boxRight">
+                                    <i class="fas fa-heart red"></i>60%
+                                </div>
+                            </div>
+                            <br>
+                            <div class="comment">
+                                はじめまして。
+                            </div>
+                        </div>
+                    </div>
+                    <div class="trainee">
+                        <span class="badge" data-badge="NEW"></span>
+                        <img src="resources/o0300030014316705656.jpg" alt="alt">
+                        <br>
+                        <div class="profile">
+                            <div class="box">
+                                <div class="name boxLeft">
+                                    <i class="fas fa-circle yellow"></i>24歳 埼玉
+                                </div>
+                                <div class="like boxRight">
+                                    <i class="fas fa-heart red"></i>60%
+                                </div>
+                            </div>
+                            <br>
+                            <div class="comment">
+                                はじめまして。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+
 </html>
