@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Powers 筋肉一覧</title>
+
+	<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+	<script src="./js/member_list_modal.js"></script>
+	<script src="./js/bootstrap.min.js"></script>
+	<link href="./css/style.css" rel="stylesheet">
+	<link href="./css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+</head>
+
+<body>
+	<div class="container">
+		<div class="contant">
+			<div class="sidebar">
+				<div class="sidebar__item">
+					<!-- 固定・追従させたいエリア -->
+					<img class="logo" src="resources/pairs_main2.png" alt="">
+					<div class="menu-item selected">
+						<i class="fas fa-search"></i><span class="menu-text">さがす</span>
+						<br>
+					</div>
+					<div class="menu-item">
+						<i class="fas fa-users"></i><span class="menu-text">コミュニティ</span>
+						<br>
+					</div>
+					<div class="menu-item">
+						<i class="far fa-thumbs-up"></i><span class="menu-text">お相手から</span>
+						<br>
+					</div>
+					<div class="menu-item">
+						<i class="far fa-comment-dots"></i><span class="menu-text">メッセージ</span>
+						<br>
+					</div>
+					<div class="menu-item">
+						<i class="fas fa-user-circle"></i><span class="menu-text">プロフィール</span>
+						<br>
+					</div>
+					<div class="menu-item">
+						<i class="fas fa-shoe-prints"></i><span class="menu-text">足あと</span>
+						<br>
+					</div>
+					<div class="menu-item">
+						<i class="fas fa-bolt"></i><span class="menu-text">ブースト</span>
+						<br>
+					</div>
+					<div class="menu-item">
+						<i class="fas fa-bars"></i><span class="menu-text">その他</span>
+						<br>
+					</div>
+				</div>
+			</div>
+
+			<main class="main">
+				<!-- メインコンテンツ -->
+				<h1>さがす</h1>
+				<div class="block search">
+					<span class="blockLeft">9,999人以上</span>
+					<i class="fas fa-search blockRight blue"></i>
+				</div>
+
+				<div class="box">
+					<div class="box-block block">
+						<div class="box-text blockLeft">あしあと</div>
+						<a class="blockRight blue" href="">もっと見る</a>
+					</div>
+					<br>
+					<div class="box-trainees">
+						<div class="box-trainee">
+							<img src="resources/o0300030014316705656.jpg" alt="alt">
+							<div class="name blockLeft">
+								<i class="fas fa-circle yellow"></i>24歳 埼玉
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="trainees">
+					<div class="trainee" id="trainee0">
+						<span class="badge" data-badge="NEW"></span>
+						<img src="resources/o0300030014316705656.jpg" alt="alt">
+						<br>
+						<div class="profile">
+							<div class="block">
+								<div class="name blockLeft">
+									<i class="fas fa-circle green"></i>24歳 埼玉
+								</div>
+								<div class="like blockRight">
+									<i class="fas fa-heart red"></i>60%
+								</div>
+							</div>
+							<br>
+							<div class="comment">
+								はじめまして。
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="box">
+					<div class="box-block block">
+						<div class="box-text blockLeft">新着のお相手</div>
+						<a class="blockRight blue" href="">もっと見る</a>
+					</div>
+					<br>
+					<div class="box-trainees">
+						<div class="box-trainee">
+							<img src="resources/o0300030014316705656.jpg" alt="alt">
+							<div class="name blockLeft">
+								<i class="fas fa-circle yellow"></i>24歳 埼玉
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+			</main>
+		</div>
+	</div>
+
+	<!-- モーダル・ダイアログ -->
+	<!--タイルレイアウト　（https://www.webcreatorbox.com/tech/css-grid-layout）　-->>
+	<div class="modal fade" id="sampleModal" tabindex="-1">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-container">
+					<div class="item box-big1">プロフィール</div>
+					<div class="item box-big2">マッスル</div>
+					<div class="item box-big3">コミュニティ</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<style>
+		.modal-dialog {
+			width: 800px;
+		}
+
+		.modal-content {
+			background: rgb(0, 0, 0,0);
+			border: none;
+			box-shadow:none;
+		}
+
+
+		.item {
+			background: #ddd;
+			padding: 10px;
+			border-radius: 8px;
+			border: 3px solid #ccc;
+		}
+
+		.modal-container {
+			display: grid;
+			gap: 10px;
+			grid-template-columns: 150px 250px 250px 100px;
+			grid-template-rows: 180px 100px 80px 50px 100px auto;
+			grid-template-areas: 
+				"space photo comunity space" 
+				"space photo comunity space" 
+				"space info comunity space"
+				"space muscle comunity space" 
+				"space space comunity   space"
+		}
+
+		.box-big1 {
+			grid-column: 2;
+			grid-row: 1 / 4;
+			background: #fc2;
+			border-color: #fa0;
+		}
+
+		.box-big2 {
+			grid-column: 2;
+			grid-row: 4;
+			background: #ff69b4;
+			border-color: #ff69b4;
+			color: white;
+			text-align: center
+		}
+
+		.box-big3 {
+			grid-column: 3;
+			grid-row: 1 / 6;
+			background: #c6c;
+			border-color: #a4a;
+		}
+
+	</style>
+
+</body>
+
+</html>
