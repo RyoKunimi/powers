@@ -129,17 +129,10 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-container">
-					<div class="item box-big1">A</div>
-					<div class="item">B</div>
-					<div class="item">C</div>
-					<div class="item">D</div>
-					<div class="item">E</div>
-					<div class="item box-big2">F</div>
-					<div class="item box-big3">G</div>
-					<div class="item">H</div>
-					<div class="item">I</div>
-					<div class="item">J</div>
-					<div class="item box-big4">K</div>
+					<div class="item box-big1">プロフィール</div>
+					<div class="item box-big2">マッスル</div>
+					<div class="item box-big3">コミュニティ</div>
+
 				</div>
 			</div>
 		</div>
@@ -167,36 +160,39 @@
 		.modal-container {
 			display: grid;
 			gap: 10px;
-			grid-template-columns: 1.5fr 1fr 1fr 3fr;
-			grid-template-rows: 180px 100px 80px 120px auto;
-
+			grid-template-columns: 150px 250px 250px 100px;
+			grid-template-rows: 180px 100px 80px 50px 100px auto;
+			grid-template-areas: 
+				"space photo comunity space" 
+				"space photo comunity space" 
+				"space info comunity space"
+				"space muscle comunity space" 
+				"space space comunity   space"
 		}
 
 		.box-big1 {
-			grid-column: 1;
+			grid-column: 2;
 			grid-row: 1 / 4;
 			background: #fc2;
 			border-color: #fa0;
 		}
 
 		.box-big2 {
-			grid-column: 3 / 5;
-			background: #0bd;
-			border-color: #09c;
+			grid-column: 2;
+			grid-row: 4;
+			background: #ff69b4;
+			border-color: #ff69b4;
+			color: white;
+			text-align: center
 		}
 
 		.box-big3 {
-			grid-column: 2 / 4;
-			grid-row: 3 / 5;
+			grid-column: 3;
+			grid-row: 1 / 6;
 			background: #c6c;
 			border-color: #a4a;
 		}
 
-		.box-big4 {
-			grid-column: 1 / 5;
-			background: #0ba;
-			border-color: #098;
-		}
 	</style>
 
 </body>
