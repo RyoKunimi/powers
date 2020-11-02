@@ -9,8 +9,9 @@
 	<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
 	<script src="./js/member_list_modal.js"></script>
 	<script src="./js/bootstrap.min.js"></script>
-	<link href="./css/style.css" rel="stylesheet">
 	<link href="./css/bootstrap.min.css" rel="stylesheet">
+	<link href="./css/style.css" rel="stylesheet">
+	<link href="./css/modal-muscle-list.css" rel="stylesheet">
 	<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 </head>
 
@@ -81,120 +82,105 @@
 				</div>
 
 				<div class="trainees">
-					<div class="trainee" id="trainee0">
-						<span class="badge" data-badge="NEW"></span>
+					<div class="trainee" id="trainee0" data-toggle="modal" data-target="#profileModal" data-index="0">
+						<span class="new-badge" data-badge="NEW"></span>
 						<img src="resources/o0300030014316705656.jpg" alt="alt">
 						<br>
 						<div class="profile">
 							<div class="block">
 								<div class="name blockLeft">
-									<i class="fas fa-circle green"></i>24歳 埼玉
+									<i class="fas fa-circle green"></i>
+									<span id="age">24歳 埼玉</span>
 								</div>
 								<div class="like blockRight">
-									<i class="fas fa-heart red"></i>60%
+									<i class="fas fa-heart red"></i>
+									<span id="rate">60%</span>
 								</div>
 							</div>
 							<br>
-							<div class="comment">
+							<div class="comment" id="comment">
 								はじめまして。
 							</div>
 						</div>
 					</div>
 				</div>
-
-				<div class="box">
-					<div class="box-block block">
-						<div class="box-text blockLeft">新着のお相手</div>
-						<a class="blockRight blue" href="">もっと見る</a>
-					</div>
-					<br>
-					<div class="box-trainees">
-						<div class="box-trainee">
-							<img src="resources/o0300030014316705656.jpg" alt="alt">
-							<div class="name blockLeft">
-								<i class="fas fa-circle yellow"></i>24歳 埼玉
-							</div>
-						</div>
-
-					</div>
-				</div>
-
 			</main>
 		</div>
 	</div>
 
 	<!-- モーダル・ダイアログ -->
 	<!--タイルレイアウト　（https://www.webcreatorbox.com/tech/css-grid-layout）　-->>
-	<div class="modal fade" id="sampleModal" tabindex="-1">
+	<div class="modal fade" id="profileModal">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-container">
-					<div class="item box-big1">プロフィール</div>
-					<div class="item box-big2">マッスル</div>
-					<div class="item box-big3">コミュニティ</div>
-
+					<div class="item box-big1">
+						<img id="img" src="resources/o0300030014316705656.jpg" alt="alt">
+						<br>
+						<div class="modal-content">
+							<div class="new">新着のお相手</div>
+							<div class="name" id="modal-name"></div>
+							<div id="modal-age-prefecture"></div>
+							<br>
+							<div id="modal-comment"></div>
+							<br>
+							<div class="status">
+								<i class="fas fa-circle green"></i>オンライン
+								<i class="fas fa-heart red"></i>相性<span id="modal-rate"></span>%
+							</div>
+						</div>
+					</div>
+					<button class="item box-big2">マッスル!</button>
+					<div class="item box-big3">
+						<div class="modal-content">
+							<div class="title">自己紹介文</div>
+							<div>
+								マッチョマッチョマッチョマッチョマッチョマッチョマッチョマッチョマッチョマッチョマッチョマッチョマッチョマッチョマッチョマッチョ
+								マッチョマッチョマッチョマッチョマッチョマッチョマッチョマッチョマッチョマッチョマッチョマッチョマッチョマッチョマッチョマッチョ
+								マッチョマッチョマッチョマッチョマッチョマッチョマッチョマッチョマッチョマッチョマッチョマッチョマッチョマッチョマッチョマッチョ
+								マッチョマッチョマッチョマッチョマッチョマッチョマッチョマッチョマッチョマッチョマッチョマッチョマッチョマッチョマッチョマッチョ
+								マッチョマッチョマッチョマッチョマッチョマッチョマッチョマッチョマッチョマッチョマッチョマッチョマッチョマッチョマッチョマッチョ
+							
+							</div>
+						</div>
+					</div>
+					<div class="item box-big4">
+						<div class="modal-content">
+							<div class="title">プロフィール</div>
+							<br>
+							<div class="subTitle">基本情報</div>
+							<dl>
+								<dt>ニックネーム</dt>
+								<dd id="modal-nickName"></dd>
+								<dt>年齢</dt>
+								<dd id="modal-age"></dd>
+								<dt>血液型</dt>
+								<dd id="moda-blood"></dd>
+								<dt>居住地</dt>
+								<dd id="modal-prefecture"></dd>
+								<dt>行きつけのジム</dt>
+								<dd id="modal-gym"></dd>
+							</dl>
+							<div class="subTitle">肉体情報</div>
+							<dl>
+								<dt>身長</dt>
+								<dd id="modal-height"></dd>
+								<dt>体重</dt>
+								<dd id="modal-weight"></dd>
+								<dt>ベンチプレス</dt>
+								<dd id="modal-benchPress"></dd>
+								<dt>デッドリフト</dt>
+								<dd id="modal-deadLift"></dd>
+								<dt>スクワット</dt>
+								<dd id="modal-squat"></dd>
+								<dt>自慢の筋肉</dt>
+								<dd id="modal-muscle"></dd>
+							</dl>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-
-	<style>
-		.modal-dialog {
-			width: 800px;
-		}
-
-		.modal-content {
-			background: rgb(0, 0, 0,0);
-			border: none;
-			box-shadow:none;
-		}
-
-
-		.item {
-			background: #ddd;
-			padding: 10px;
-			border-radius: 8px;
-			border: 3px solid #ccc;
-		}
-
-		.modal-container {
-			display: grid;
-			gap: 10px;
-			grid-template-columns: 150px 250px 250px 100px;
-			grid-template-rows: 180px 100px 80px 50px 100px auto;
-			grid-template-areas: 
-				"space photo comunity space" 
-				"space photo comunity space" 
-				"space info comunity space"
-				"space muscle comunity space" 
-				"space space comunity   space"
-		}
-
-		.box-big1 {
-			grid-column: 2;
-			grid-row: 1 / 4;
-			background: #fc2;
-			border-color: #fa0;
-		}
-
-		.box-big2 {
-			grid-column: 2;
-			grid-row: 4;
-			background: #ff69b4;
-			border-color: #ff69b4;
-			color: white;
-			text-align: center
-		}
-
-		.box-big3 {
-			grid-column: 3;
-			grid-row: 1 / 6;
-			background: #c6c;
-			border-color: #a4a;
-		}
-
-	</style>
-
 </body>
-
 </html>
