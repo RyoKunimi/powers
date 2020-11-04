@@ -5,17 +5,76 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Powers ログイン</title>
-
 	<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
 	<script src="./js/member_list_modal.js"></script>
 	<script src="./js/bootstrap.min.js"></script>
-	<link href="./css/style.css" rel="stylesheet">
+	<link href="./css/login.css" rel="stylesheet">
 	<link href="./css/bootstrap.min.css" rel="stylesheet">
 	<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 </head>
 
 <body>
-	これから実装します
+	<div class="wrapper">
+		<div class="container">
+			<h1>Welcome</h1>
+			<form class="form" name="loginForm" action="muscleList.html">
+				<input type="text" id="mussleName" placeholder="Mussle name">
+				<input type="password" id="password" placeholder="Password">
+				<button type="button" id="login-button">Login</button>
+			</form>
+		</div>
+
+		<ul class="bg-bubbles">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+</body>
+
+<script type="text/javascript">
+	$("#login-button").click(function (event) {
+
+		var mussleName = $('#mussleName').val();
+		var password = $('#password').val();
+
+		if (!(mussleName == 'test' && password == 'test')) {
+			alert('Mussle name または passwordが違います。');
+			return;
+		}
+
+		event.preventDefault();
+
+		$('form').fadeOut(500);
+		$('.wrapper').addClass('form-success');
+
+		wait();	
+		
+	});
+
+
+	function wait() {
+		var huga = 0;
+		var hoge = setInterval(function () {
+			console.log(huga);
+			huga++;
+			//終了条件
+			if (huga == 2) {
+				clearInterval(hoge);
+				document.loginForm.submit();
+			}
+		}, 1000);
+	}
+</script>
+
+
 </body>
 
 </html>
